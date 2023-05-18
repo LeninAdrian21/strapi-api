@@ -1,0 +1,80 @@
+{
+  "kind": "collectionType",
+  "collectionName": "usuarios",
+  "info": {
+    "name": "Users",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "surname": {
+      "type": "string",
+      "required": true
+    },
+    "username": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "birthdate": {
+      "type": "date",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "password": {
+      "type": "password",
+      "required": true,
+      "unique": true
+    },
+    "img": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "confirm": {
+      "type": "boolean",
+      "default": false,
+      "required": false
+    },
+    "removed": {
+      "type": "boolean",
+      "default": false
+    },
+    "publications": {
+      "via": "user",
+      "collection": "publications"
+    },
+    "books": {
+      "collection": "books",
+      "via": "user"
+    },
+    "music": {
+      "collection": "musics",
+      "via": "user"
+    },
+    "videos": {
+      "collection": "video",
+      "via": "user"
+    }
+  }
+}

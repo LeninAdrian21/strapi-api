@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "musics",
+  "info": {
+    "name": "Musics",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "song": {
+      "type": "string",
+      "required": true
+    },
+    "album": {
+      "type": "string",
+      "required": true,
+      "default": "undefined"
+    },
+    "file": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "imagen": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "user": {
+      "via": "music",
+      "model": "usuario"
+    }
+  }
+}
